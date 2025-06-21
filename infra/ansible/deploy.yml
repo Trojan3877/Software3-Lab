@@ -1,0 +1,34 @@
+---
+# Deploy / upgrade Software-3-Lab Helm release
+#   ansible-playbook -i inventory deploy.yml \
+#     -e "chart_path=../helm/software3-lab"
+# -------------------------------------------------------------------
+
+- name: 🚀 Deploy Software-3-Lab via Helm
+  hosts: localhost
+  connection: local
+
+  vars:
+    release_name: software3-lab
+    namespace: software3
+    chart_path: ../helm/software3-lab      # override with -e
+    image_tag: "0.1.0"                     # override to roll new Docker tag
+
+  tasks:
+    - name: ⛴ Ensure Helm is installed
+      shell: |
+        if ! command -v helm &> /dev/null; then
+          curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+        fi
+
+    - name: 🛰️  Helm upgrade / install release
+      shell: |
+        helm upgrade --install {{ release_name }} {{ chart_path }} \
+          --namespace {{ namespace }} \
+          --create-namespace \
+          --set image.tag={{ image_tag }}
+      register: helm_out
+
+    - name: 📄 Show Helm output
+      debug:
+        var: helm_out.stdout_lines
