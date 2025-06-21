@@ -1,0 +1,21 @@
+[package]
+name = "tokenizer"
+version = "0.1.0"
+edition = "2021"
+authors = ["Corey Leath <coreyleath10@gmail.com>"]
+description = "Ultra-fast token counting utilities for Software3-Lab (Python FFI via PyO3)"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib"]       # produces a .so / .dll for Python
+
+[dependencies]
+# PyO3 bridge to Python
+pyo3 = { version = "0.20", features = ["extension-module"] }
+
+# Optional: Hugging Face tokenizers for real BPE support (heavy)
+# tokenizers = { version = "0.15", default-features = false, features = ["pyo3"] }
+
+[profile.release]
+lto = "thin"
+opt-level = "z"
