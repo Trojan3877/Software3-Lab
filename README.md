@@ -14,6 +14,7 @@ Software3-lab Shows how fine-tuning, RAG, and model-generated code can replace c
 ![K8s](https://img.shields.io/badge/Kubernetes-Helm-informational?style=for-the-badge&logo=kubernetes)
 ![Terraform](https://img.shields.io/badge/Terraform-EKS-critical?style=for-the-badge&logo=terraform)
 ![Ansible](https://img.shields.io/badge/Ansible-Automation-red?style=for-the-badge&logo=ansible)
+![Capstone](https://img.shields.io/badge/Project-Capstone-blueviolet?style=for-the-badge)
 
 > **Software 3.0 = data + model > code**  
 > This lab is a sandbox for building, fine-tuning, evaluating, and shipping ML-driven “code-as-data” systems—complete with MLOps, multi-language extensions, and cost / performance telemetry.
