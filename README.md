@@ -3,18 +3,97 @@ Software3-lab Shows how fine-tuning, RAG, and model-generated code can replace c
 
 # 🧬 Software3-Lab
 
-![Project](https://img.shields.io/badge/Project-Software%203.0-darkviolet?style=for-the-badge)
+# 🧬 Software-3.0 Lab
+
+![Capstone](https://img.shields.io/badge/Project-Capstone-blueviolet?style=for-the-badge)
 ![Build](https://github.com/Trojan3877/Software3-Lab/actions/workflows/ci.yml/badge.svg?style=for-the-badge)
 ![Coverage](https://codecov.io/gh/Trojan3877/Software3-Lab/branch/main/graph/badge.svg?style=for-the-badge)
+![Telemetry](https://img.shields.io/badge/Telemetry-Enabled-brightgreen?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
 ![Rust](https://img.shields.io/badge/Rust-1.78-orange?style=for-the-badge&logo=rust)
 ![Java](https://img.shields.io/badge/Java-17-red?style=for-the-badge&logo=openjdk)
 ![C++](https://img.shields.io/badge/C%2B%2B-17-lightgrey?style=for-the-badge&logo=c%2B%2B)
-![Docker](https://img.shields.io/badge/Docker-enabled-blue?style=for-the-badge&logo=docker)
+![Docker](https://img.shields.io/badge/Docker-Enabled-blue?style=for-the-badge&logo=docker)
 ![K8s](https://img.shields.io/badge/Kubernetes-Helm-informational?style=for-the-badge&logo=kubernetes)
 ![Terraform](https://img.shields.io/badge/Terraform-EKS-critical?style=for-the-badge&logo=terraform)
 ![Ansible](https://img.shields.io/badge/Ansible-Automation-red?style=for-the-badge&logo=ansible)
-![Capstone](https://img.shields.io/badge/Project-Capstone-blueviolet?style=for-the-badge)
+
+> **Professional Extended Description**  
+> **Software-3.0 Lab** is a fully-containerized R&D sandbox that proves “data + model > code.”  
+> It automates the entire life-cycle — **feedback ⇢ fine-tune ⇢ evaluate ⇢ deploy** — while showcasing **multi-language performance boosters** (Rust tokenizer, C++ vector kernels, Java prompt-templating) and **enterprise-grade MLOps** (Docker, Helm, Terraform, Ansible).  
+> OpenTelemetry traces, nightly Snowflake metrics, and Codecov coverage badges provide real-world observability and engineering rigor expected at Big-Tech scale.
+
+---
+
+## 📂 File Structure
+
+Software3-Lab/
+├── pipelines/ # collect_feedback, fine_tune, evaluate
+├── rust/tokenizer/ # PyO3 ultra-fast token counter
+├── cpp/vector_math.cpp # dot & cosine similarity (libvector.so)
+├── infra/
+│ ├── helm/software3-lab/ # Helm chart (values, deployment, service)
+│ ├── terraform/ # EKS + Helm release
+│ ├── ansible/deploy.yml # blue-green upgrades
+│ └── otel/otel-collector-config.yaml
+├── docs/
+│ ├── architecture.md
+│ ├── api_reference.md
+│ ├── metrics.md # auto-updated nightly
+│ └── flowchart.png
+├── docker-compose.yml
+├── Dockerfile # multi-stage build
+├── Makefile
+└── .github/workflows/
+├── ci.yml # multi-lang build + tests → Codecov
+└── metrics-export.yml # nightly Snowflake + docs refresh
+
+yaml
+Copy
+Edit
+
+
+---
+
+## 🗺 Architecture Diagram  
+![Flow-chart](docs/flowchart.png)
+
+---
+
+## 🔍 Core Algorithms / Components
+
+| Badge | Technology | Role |
+|-------|------------|------|
+| ![LLM](https://img.shields.io/badge/Model-LLM-orange) | **Fine-tuned GPT-3.5** | Generates Software-3.0 logic |
+| ![Rust](https://img.shields.io/badge/Rust-Tokenizer-orange) | **Token Counter (Rust)** | 10× faster cost estimation |
+| ![C++](https://img.shields.io/badge/C%2B%2B-VectorMath-blue) | **Cosine & Dot (C++)** | High-perf embedding sims |
+| ![Java](https://img.shields.io/badge/Java-PromptEngine-red) | **Type-safe template engine** | Compile-time prompt linting |
+| ![SageMaker](https://img.shields.io/badge/ML-SageMaker-brightgreen) | **LoRA Fine-Tuning** | GPU-heavy jobs offloaded |
+| ![Snowflake](https://img.shields.io/badge/SQL-Snowflake-blue) | **Metrics Store** | Latency, cost, accuracy |
+
+---
+
+## 📈 Latest Evaluation Snapshot
+
+
+<!-- METRICS-TABLE:START -->
+| Timestamp (UTC) | Model | Rouge-L | BLEU-4 | Pass@3 | #Samples |
+|-----------------|-------|---------|--------|--------|----------|
+| _placeholder_ | | | | | |
+<!-- METRICS-TABLE:END -->
+
+> Full history & cost trends → **[`docs/metrics.md`](docs/metrics.md)**
+> Full history & cost trends → **[`docs/metrics.md`](docs/metrics.md)**
+
+---
+
+## 🚀 Quick Start
+
+### 1. Local Dev
+
+```bash
+make build-rust build-cpp   # one-time native builds
+make dev                    # hot-reload FastAPI at :8080
 
 > **Software 3.0 = data + model > code**  
 > This lab is a sandbox for building, fine-tuning, evaluating, and shipping ML-driven “code-as-data” systems—complete with MLOps, multi-language extensions, and cost / performance telemetry.
@@ -78,3 +157,5 @@ cd rust/tokenizer && cargo build --release && cd ../../
 
 # Compile C++ lib
 g++ -O3 -shared -std=c++17 -fPIC cpp/vector_math.cpp -o cpp/libvector.so
+
+software3 • llm-fine-tune • rag • rust-pyo3 • cpp-kernels • mlops • terraform • kubernetes • observability
