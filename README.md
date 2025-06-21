@@ -19,6 +19,7 @@ Software3-lab Shows how fine-tuning, RAG, and model-generated code can replace c
 > This lab is a sandbox for building, fine-tuning, evaluating, and shipping ML-driven “code-as-data” systems—complete with MLOps, multi-language extensions, and cost / performance telemetry.
 
 ---
+![Software-3-Lab Flow-chart](docs/flowchart.png)
 
 ## 🌟 Key Objectives
 1. **Fine-Tuning Loop** – Collect user feedback ➞ generate JSONL ➞ automate OpenAI / LoRA fine-tunes.  
