@@ -1,0 +1,102 @@
+name: Nightly-Metrics-Export
+
+# ──────────────────────────────────────────────────────────────────
+#  Runs every night at 02:00 UTC
+#  1. Finds newest JSON in data/eval/results/
+#  2. Upserts the row into Snowflake table SOFTWARE3_METRICS.PUBLIC.EVAL_RUNS
+#  3. Commits an updated docs/metrics.md table back to main
+# ──────────────────────────────────────────────────────────────────
+on:
+  schedule:
+    - cron:  '0 2 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0     # required for committing back
+
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+
+    - name: 📦 Install deps
+      run: |
+        python -m pip install --upgrade pip
+        pip install snowflake-connector-python==3.6.0
+
+    - name: 🔎 Locate latest metrics JSON
+      id: find_json
+      run: |
+        FILE=$(ls -t data/eval/results/*.json | head -n 1)
+        echo "json_file=$FILE" >> $GITHUB_OUTPUT
+        echo "Found: $FILE"
+
+    - name: 🏷 Parse JSON → env
+      id: parse
+      run: |
+        python - <<'PY'
+        import json, os, sys
+        f = os.environ["JSON"]
+        data = json.load(open(f))
+        for k,v in data.items():
+            print(f"{k}={v}")
+        PY
+      env:
+        JSON: ${{ steps.find_json.outputs.json_file }}
+
+    - name: ❄️  Upsert into Snowflake
+      env:
+        SNOWFLAKE_ACCOUNT:  ${{ secrets.SNOWFLAKE_ACCOUNT }}
+        SNOWFLAKE_USER:     ${{ secrets.SNOWFLAKE_USER }}
+        SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+        SNOWFLAKE_DATABASE: SOFTWARE3_METRICS
+        SNOWFLAKE_SCHEMA:   PUBLIC
+        SNOWFLAKE_WAREHOUSE: COMPUTE_WH
+      run: |
+        python - <<'PY'
+        import os, json, snowflake.connector, sys
+        f = os.environ["JSON"]
+        rec = json.load(open(f))
+        conn = snowflake.connector.connect(
+            account=os.environ["SNOWFLAKE_ACCOUNT"],
+            user=os.environ["SNOWFLAKE_USER"],
+            password=os.environ["SNOWFLAKE_PASSWORD"],
+            database=os.environ["SNOWFLAKE_DATABASE"],
+            schema=os.environ["SNOWFLAKE_SCHEMA"],
+            warehouse=os.environ["SNOWFLAKE_WAREHOUSE"],
+        )
+        cur = conn.cursor()
+        cur.execute("""
+          CREATE TABLE IF NOT EXISTS EVAL_RUNS (
+            ts TIMESTAMP, model STRING, rougeL FLOAT,
+            bleu4 FLOAT, pass3 FLOAT, samples INT
+          );
+        """)
+        cur.execute("""
+          INSERT INTO EVAL_RUNS (ts, model, rougeL, bleu4, pass3, samples)
+          VALUES (%(timestamp)s, %(model)s, %(rougeL)s, %(bleu4)s, %(pass@3)s, %(num_samples)s)
+        """, rec)
+        cur.close(); conn.close()
+        PY
+      env:
+        JSON: ${{ steps.find_json.outputs.json_file }}
+
+    - name: 📝 Refresh docs/metrics.md table
+      run: |
+        python scripts/update_metrics_table.py  # (write this helper later)
+      continue-on-error: true   # don't fail nightly job if table script missing
+
+    - name: 🆙 Commit updated docs (if changed)
+      run: |
+        git config --global user.email "bot@github.com"
+        git config --global user.name  "metrics-bot"
+        git add docs/metrics.md || true
+        git diff --staged --quiet || git commit -m "chore: nightly metrics update"
+        git push || true
