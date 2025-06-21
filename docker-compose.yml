@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: software3-lab
+    environment:
+      # ── Local stand-in creds (override in .env for secrets) ───────────────
+      SNOWFLAKE_ACCOUNT: "local"
+      SNOWFLAKE_USER: "demo"
+      SNOWFLAKE_PASSWORD: "demo"
+      SNOWFLAKE_DATABASE: "SOFTWARE3_DB"
+      SNOWFLAKE_SCHEMA: "PUBLIC"
+      SNOWFLAKE_WAREHOUSE: "LOCAL_WH"
+      AWS_DEFAULT_REGION: "us-east-1"
+      OPENAI_API_KEY: "sk-demo"      # replace or export in shell
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    volumes:
+      - ./:/app             # hot-reload for local dev
+    command: >
+      uvicorn pipelines.evaluate:app
+      --host 0.0.0.0
+      --port 8080
+      --reload
+
+  db:
+    image: postgres:15-alpine          # lightweight Snowflake substitute
+    container_name: software3-db
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: software3_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+volumes:
+  dbdata:
