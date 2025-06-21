@@ -1,0 +1,16 @@
+apiVersion: v2
+name: software3-lab
+description: Helm chart for deploying the Software-3.0 Lab (multi-language fine-tune & eval service)
+type: application
+version: 0.1.0          # bump when chart changes
+appVersion: "0.1.0"     # Docker image tag
+icon: https://raw.githubusercontent.com/Trojan3877/HelixAgent/main/docs/flowchart.png
+keywords:
+  - software3
+  - llm
+  - fine-tune
+  - rag
+  - mlops
+maintainers:
+  - name: Corey Leath
+    email: coreyleath10@gmail.com
