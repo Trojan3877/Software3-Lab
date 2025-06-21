@@ -1,0 +1,45 @@
+# ------------------------------------------------------------------
+# software3-lab Helm defaults
+# Override these with: helm install ... -f my_values.yaml
+# ------------------------------------------------------------------
+
+replicaCount: 1
+
+image:
+  repository: trojan3877/software3-lab   # update after pushing to Docker Hub
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080           # FastAPI (or Streamlit) port—adjust as needed
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 512Mi
+  limits:
+    cpu: 1
+    memory: 2Gi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 75
+
+env:                  # Injected as container ENV
+  OPENAI_API_KEY: ""
+  SNOWFLAKE_ACCOUNT: ""
+  SNOWFLAKE_USER: ""
+  SNOWFLAKE_DATABASE: "SOFTWARE3_DB"
+  SNOWFLAKE_SCHEMA: "PUBLIC"
+  SNOWFLAKE_WAREHOUSE: "COMPUTE_WH"
+  AWS_DEFAULT_REGION: "us-east-1"
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts: []
+  tls: []
