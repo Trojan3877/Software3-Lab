@@ -1,0 +1,46 @@
+Software3-Lab/
+│
+├── src/
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── base_model.py
+│   │   ├── object_registry.py
+│   │   └── utils.py
+│   │
+│   ├── oop_labs/
+│   │   ├── __init__.py
+│   │   ├── pet.py
+│   │   ├── team.py
+│   │   ├── vending_machine.py
+│   │   ├── transport_mode.py
+│   │   └── airplane.py
+│   │
+│   ├── ai/
+│   │   ├── __init__.py
+│   │   ├── llama_client.py
+│   │   └── prompts.py
+│   │
+│   ├── mcp/
+│   │   ├── __init__.py
+│   │   ├── server.py
+│   │   └── tools.py
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_oop.py
+│   ├── test_ai.py
+│   └── test_mcp.py
+│
+├── config/
+│   ├── settings.yaml
+│   └── logging.conf
+│
+├── app.py
+├── requirements.txt
+├── Dockerfile
+├── .gitignore
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+│
+└── README.md
