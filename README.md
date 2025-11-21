@@ -1,161 +1,187 @@
-# Software3-Lab
-Software3-lab Shows how fine-tuning, RAG, and model-generated code can replace classic imperative logic.
-
-# 🧬 Software3-Lab
-
 # 🧬 Software-3.0 Lab
 
-![Capstone](https://img.shields.io/badge/Project-Capstone-blueviolet?style=for-the-badge)
-![Build](https://github.com/Trojan3877/Software3-Lab/actions/workflows/ci.yml/badge.svg?style=for-the-badge)
-![Coverage](https://codecov.io/gh/Trojan3877/Software3-Lab/branch/main/graph/badge.svg?style=for-the-badge)
-![Telemetry](https://img.shields.io/badge/Telemetry-Enabled-brightgreen?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
-![Rust](https://img.shields.io/badge/Rust-1.78-orange?style=for-the-badge&logo=rust)
-![Java](https://img.shields.io/badge/Java-17-red?style=for-the-badge&logo=openjdk)
-![C++](https://img.shields.io/badge/C%2B%2B-17-lightgrey?style=for-the-badge&logo=c%2B%2B)
-![Docker](https://img.shields.io/badge/Docker-Enabled-blue?style=for-the-badge&logo=docker)
-![K8s](https://img.shields.io/badge/Kubernetes-Helm-informational?style=for-the-badge&logo=kubernetes)
-![Terraform](https://img.shields.io/badge/Terraform-EKS-critical?style=for-the-badge&logo=terraform)
-![Ansible](https://img.shields.io/badge/Ansible-Automation-red?style=for-the-badge&logo=ansible)
-
-> **Professional Extended Description**  
-> **Software-3.0 Lab** is a fully-containerized R&D sandbox that proves “data + model > code.”  
-> It automates the entire life-cycle — **feedback ⇢ fine-tune ⇢ evaluate ⇢ deploy** — while showcasing **multi-language performance boosters** (Rust tokenizer, C++ vector kernels, Java prompt-templating) and **enterprise-grade MLOps** (Docker, Helm, Terraform, Ansible).  
-> OpenTelemetry traces, nightly Snowflake metrics, and Codecov coverage badges provide real-world observability and engineering rigor expected at Big-Tech scale.
+# Software3-Lab  
+### Advanced OOP Simulation Framework + MCP + LLaMA 2 Integration  
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
+![Build](https://img.shields.io/github/actions/workflow/status/Trojan3877/Software3-Lab/ci.yaml?label=CI)
+![Lint](https://img.shields.io/github/actions/workflow/status/Trojan3877/Software3-Lab/lint.yaml?label=Linting)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Issues](https://img.shields.io/github/issues/Trojan3877/Software3-Lab)
+![Last Commit](https://img.shields.io/github/last-commit/Trojan3877/Software3-Lab)
 
 ---
 
-## 📂 File Structure
+## 📌 Overview
+**Software3-Lab** has evolved from a course lab into a **full L5/L6-quality object-oriented simulation framework** with:
 
+- 🚀 Full transportation hierarchy (Motorcycle, MotorVehicle, Airplane, JetPlane)  
+- 🧠 LLaMA 2 (or LLaMA 3) LLM integration for explanations, summaries & reasoning  
+- 🛰 MCP (Model Context Protocol) integration for controlling simulation objects  
+- 🧩 Modular architecture using modern Python package patterns  
+- 🛠 Production-ready core modules (BaseModel, ObjectRegistry, Logging)  
+- 🧪 Full test suite (pytest) + GitHub Actions CI/CD  
+- 🐳 Docker support  
+- 🔍 Professional observability (logging, telemetry)  
+
+This project demonstrates **OOP mastery**, **AI integration**, **system design**, and **software engineering rigor** for ML/AI engineering roles.
+
+---
+
+## 🗂 Project Structure
+
+```
 Software3-Lab/
-├── pipelines/ # collect_feedback, fine_tune, evaluate
-├── rust/tokenizer/ # PyO3 ultra-fast token counter
-├── cpp/vector_math.cpp # dot & cosine similarity (libvector.so)
-├── infra/
-│ ├── helm/software3-lab/ # Helm chart (values, deployment, service)
-│ ├── terraform/ # EKS + Helm release
-│ ├── ansible/deploy.yml # blue-green upgrades
-│ └── otel/otel-collector-config.yaml
-├── docs/
-│ ├── architecture.md
-│ ├── api_reference.md
-│ ├── metrics.md # auto-updated nightly
-│ └── flowchart.png
-├── docker-compose.yml
-├── Dockerfile # multi-stage build
-├── Makefile
-└── .github/workflows/
-├── ci.yml # multi-lang build + tests → Codecov
-└── metrics-export.yml # nightly Snowflake + docs refresh
-
-yaml
-Copy
-Edit
-
-
----
-
-## 🗺 Architecture Diagram  
-![Flow-chart](docs/flowchart.png)
-
----
-
-## 🔍 Core Algorithms / Components
-
-| Badge | Technology | Role |
-|-------|------------|------|
-| ![LLM](https://img.shields.io/badge/Model-LLM-orange) | **Fine-tuned GPT-3.5** | Generates Software-3.0 logic |
-| ![Rust](https://img.shields.io/badge/Rust-Tokenizer-orange) | **Token Counter (Rust)** | 10× faster cost estimation |
-| ![C++](https://img.shields.io/badge/C%2B%2B-VectorMath-blue) | **Cosine & Dot (C++)** | High-perf embedding sims |
-| ![Java](https://img.shields.io/badge/Java-PromptEngine-red) | **Type-safe template engine** | Compile-time prompt linting |
-| ![SageMaker](https://img.shields.io/badge/ML-SageMaker-brightgreen) | **LoRA Fine-Tuning** | GPU-heavy jobs offloaded |
-| ![Snowflake](https://img.shields.io/badge/SQL-Snowflake-blue) | **Metrics Store** | Latency, cost, accuracy |
-
----
-
-## 📈 Latest Evaluation Snapshot
-
-
-<!-- METRICS-TABLE:START -->
-| Timestamp (UTC) | Model | Rouge-L | BLEU-4 | Pass@3 | #Samples |
-|-----------------|-------|---------|--------|--------|----------|
-| _placeholder_ | | | | | |
-<!-- METRICS-TABLE:END -->
-
-> Full history & cost trends → **[`docs/metrics.md`](docs/metrics.md)**
-> Full history & cost trends → **[`docs/metrics.md`](docs/metrics.md)**
-
----
-
-## 🚀 Quick Start
-
-### 1. Local Dev
-
-```bash
-make build-rust build-cpp   # one-time native builds
-make dev                    # hot-reload FastAPI at :8080
-
-> **Software 3.0 = data + model > code**  
-> This lab is a sandbox for building, fine-tuning, evaluating, and shipping ML-driven “code-as-data” systems—complete with MLOps, multi-language extensions, and cost / performance telemetry.
-
----
-![Software-3-Lab Flow-chart](docs/flowchart.png)
-
-## 🌟 Key Objectives
-1. **Fine-Tuning Loop** – Collect user feedback ➞ generate JSONL ➞ automate OpenAI / LoRA fine-tunes.  
-2. **Evaluation Harness** – Regression tests that treat the model as code (Rouge / BLEU / Pass@k).  
-3. **Multi-Language Extensions** –  
-   - **Rust**: high-perf token counters + embedding utils  
-   - **Java**: strict type-safe prompt template engine  
-   - **C++**: vector-similarity & math kernels  
-4. **MLOps** – Docker, Helm, Terraform (EKS), Ansible rollout; metrics logged to Snowflake; SageMaker for heavy training.  
-
----
-
-## 📂 Repository Structure
-
-Software3-Lab/
-├── pipelines/
-│ ├── collect_feedback.py # Python
-│ ├── fine_tune.py
-│ ├── evaluate.py
-│ └── registry.json
-├── prompts/
-│ └── summarizer_prompt.txt
-├── rust/
-│ └── tokenizer/src/lib.rs # Cargo crate
-├── java/
-│ └── template-engine/src/... # Maven project
-├── cpp/
-│ ├── vector_math.cpp
-│ └── libvector.so
-├── infra/
-│ ├── helm/software3-lab/
-│ ├── terraform/
-│ └── ansible/deploy.yml
+│
+├── src/
+│   ├── core/
+│   │   ├── base_model.py
+│   │   ├── object_registry.py
+│   │   └── __init__.py
+│   │
+│   ├── oop_labs/
+│   │   ├── transport_mode.py
+│   │   ├── motor_vehicle.py
+│   │   ├── motorcycle.py
+│   │   ├── airplane.py
+│   │   ├── jet_plane.py
+│   │   ├── __init__.py
+│   │   └── examples/
+│   │       ├── demo_vehicle_sim.py
+│   │       ├── demo_registry.py
+│   │       └── __init__.py
+│   │
+│   └── __init__.py
+│
 ├── tests/
-│ └── eval_suite.py
 ├── Dockerfile
 ├── requirements.txt
-├── docs/
-│ ├── architecture.md
-│ ├── metrics.md
-│ └── flowchart.png
-└── README.md
+├── pyproject.toml
+├── README.md
+└── .github/workflows/
+```
+
 ---
 
-## 🚀 Quick Start
+## 🧠 LLaMA 2 / LLaMA 3 Integration  
+This project supports **local** or **API-based** LLaMA models.
 
-```bash
-git clone https://github.com/Trojan3877/Software3-Lab.git
-cd Software3-Lab
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
+Use the LLaMA client to generate explanations for any object:
 
-# Build Rust crate
-cd rust/tokenizer && cargo build --release && cd ../../
+### **Example (explain a JetPlane using LLaMA):**
+```python
+from src.ai.llama_client import LlamaClient
+from src.oop_labs.jet_plane import JetPlane
 
-# Compile C++ lib
-g++ -O3 -shared -std=c++17 -fPIC cpp/vector_math.cpp -o cpp/libvector.so
+llm = LlamaClient(model="llama2-13b")
 
-software3 • llm-fine-tune • rag • rust-pyo3 • cpp-kernels • mlops • terraform • kubernetes • observability
+jet = JetPlane(
+    name="F-22 Raptor",
+    max_speed=1500,
+    wingspan=44,
+    max_altitude=65000,
+    num_passengers=1,
+    is_military=True,
+)
+
+explanation = llm.explain_object(jet)
+print(explanation)
+```
+
+### **What the LLM can do:**
+- Provide OOP explanations  
+- Describe object behavior  
+- Summarize simulation state  
+- Generate natural-language reasoning  
+- Assist with debugging  
+
+---
+
+## 🛰 MCP Integration (Model Context Protocol)
+
+You can control and inspect objects in the simulation using the MCP server.
+
+### **Example MCP Calls**
+```
+mcp call transport.takeoff <jet_id>
+mcp call motorcycle.add_fuel <bike_id> gallons=3
+mcp get-object <id>
+mcp list-objects
+```
+
+The server exposes each object in the `ObjectRegistry` and allows:
+
+- Real-time inspection  
+- Method invocation  
+- State updates  
+- Telemetry retrieval  
+
+### **Start the MCP Server**
+```
+python -m src.mcp.server
+```
+
+---
+
+## 🚀 Running the Simulation Demo
+
+### **Vehicle Simulation**
+```
+python src/oop_labs/examples/demo_vehicle_sim.py
+```
+
+### **Registry Inspector**
+```
+python src/oop_labs/examples/demo_registry.py
+```
+
+---
+
+## 🧪 Testing
+
+Run full test suite:
+
+```
+pytest -q
+```
+
+---
+
+## 🐳 Docker Support
+
+Build:
+```
+docker build -t software3-lab .
+```
+
+Run:
+```
+docker run -it software3-lab
+```
+
+---
+
+## 📌 Key Features (L5/L6 Level)
+
+| Feature | Description |
+|--------|-------------|
+| **Advanced OOP Architecture** | Deep inheritance hierarchy with vehicles & aircraft |
+| **Telemetry Logging** | Loguru-based structured logs |
+| **Registry System** | Global object registry with search/index capabilities |
+| **LLM Integration** | LLaMA 2/3 for reasoning & explanation |
+| **MCP Server** | API-like control mechanism |
+| **Professional Structure** | Full src layout, tests, CI/CD |
+| **Simulated Physics** | Speed, altitude, fuel systems, EV systems |
+| **Airplane & Jet Simulation** | Takeoff, landing, climb, descent, afterburner, Mach speed |
+
+---
+
+## 📄 License  
+MIT License — free for personal and professional use.
+
+---
+
+## ⭐ Developer  
+**Corey Leath**  
+AI/ML Engineer & Software Developer  
+GitHub: [@Trojan3877](https://github.com/Trojan3877)
+
