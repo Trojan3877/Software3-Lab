@@ -1,32 +1,4 @@
-# Core Python dependencies
-pydantic>=2.0
-pyyaml>=6.0
-python-dotenv>=1.0
-
-# AI / LLM integrations
-transformers>=4.36.0
-sentencepiece>=0.1.99
-accelerate>=0.25.0
-torch>=2.1.0
-
-# MCP (Model Context Protocol)
-mcp>=0.1.8
-fastapi>=0.110.0
-uvicorn>=0.29.0
-
-# Utilities and helpers
-rich>=13.0
-loguru>=0.7.2
-
-# Testing stack
-pytest>=7.4
-pytest-cov>=4.1
-httpx>=0.26.0
-
-# Linting & formatting (CI/CD)
-black>=24.1
-flake8>=6.1
-isort>=5.13
-
-# Optional speedups
-numpy>=1.26
+langchain
+langchain-openai
+openai
+python-dotenv
