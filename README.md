@@ -1,5 +1,4 @@
 # 🚀 Software3-Lab — LLM-Augmented AI Control Plane
-
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![MLflow](https://img.shields.io/badge/MLflow-Tracking-blue)
 ![LangChain](https://img.shields.io/badge/LangChain-MCP-orange)
@@ -100,3 +99,17 @@ Model registry promotion
 Performance regression alerts
 
 Multi-agent orchestration
+
+Design Questions & Reflections
+Q: What problem does this project aim to solve?
+A: This project was built to explore core software engineering principles in a structured lab environment, focusing on clean code organization, object-oriented design, and feature implementation practices that mirror real application development. The goal was to go beyond small scripts and build something with modularity and maintainability in mind.
+Q: Why did I choose this design and approach instead of something simpler?
+A: I chose to emphasize clear separation of concerns and object-oriented patterns so that each component of the system could evolve independently and be easily tested. This was more work than quickly prototyping a single file, but it improved readability, reusability, and made debugging easier over time.
+Q: What were the main trade-offs I made?
+A: The trade-off was between speed of initial development and long-term clarity. I could have sketched the whole thing in a few files, but I would have lost structure and future scalability. By investing in a solid project layout and explicit module boundaries, I traded some early speed for maintainability and extensibility.
+Q: What didn’t work as expected?
+A: Some parts of the implementation didn’t perform as efficiently as I anticipated when handling edge cases or larger input sizes. Addressing these required reevaluating data structures and logic flows, which helped me refine both performance considerations and code clarity.
+Q: What did I learn from building this project?
+A: I learned the value of starting with a solid design foundation and how important it is to think about how future changes will affect an entire system. I also gained deeper insights into debugging practices, version control workflows, and how incremental updates can improve both quality and readability.
+Q: If I had more time or resources, what would I improve next?
+A: I would build out a more comprehensive test suite and add automated testing so that each module could be verified independently. I’d also try to gather user feedback or usage patterns to further refine functionality and polish the user experience.
