@@ -7,9 +7,8 @@
 ![CI](https://github.com/Trojan3877/Software3-Lab/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
----
 
-## 📌 Overview
+📌 Overview
 
 **Software3-Lab** is a **production-style AI system** that combines:
 
